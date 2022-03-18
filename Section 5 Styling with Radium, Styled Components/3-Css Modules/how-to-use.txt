@@ -1,0 +1,42 @@
+How to use the downloaded files
+
+1) Run "npm install" in the extracted folder
+2) Run "npm start" to view the project
+
+Compare my code to yours to solve issues you might encounter. You may also copy the content of src/ into your own project's src/ folder to use your project setup (which might've been created with a different create-react-app version) and still use my code.
+
+3) npm run eject
+ (y/n)-y
+
+Quit your development server and then run npm run eject in your project folder.
+Running this script will eject from this under the hood configuration where you don't really have
+access to the underlying webpack config files and so on and give you access to the config files
+so that you can tweak how your code is bundled together.
+
+This will give you access to config folder.
+Inside this folder you will find webpack.config.dev.js and webpack.config.prod.js files.
+These are already configuration files which are used under the hood by this react here.
+
+You'll see the package.json file now will be all the changed.
+You'll have way more packages in there now.
+These are npm packages used under the hood by create-react-app to give you that development server and build your app and bundle it together.
+It uses the webpack configuration files for cofiguring the webpack tool.
+
+Inside the webpack.config.dev.js scroll until you find test: css
+We will make changes there as well as same changes in prod file
+ {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                  modules: true,//This enables the css modules feature 
+                  localIdentName: '[name]__[local]__[hash:base64:5]'// This will be used by the CSS modules feature to dynamically generate unique CSS class names in the end.
+ },
+
+
+Now this is for react-script version 1.
+If you are using react-scripts version 2 or highger
+You can use the syntax automatically.
+The only thing you need to do is rename your files with extension filename.module.css and 
+import them as such-
+import classes from './filename.module.css'
+We don't need the eject step.
